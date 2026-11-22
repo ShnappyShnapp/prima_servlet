@@ -44,7 +44,7 @@ public class PrimaServlet extends HttpServlet {
 		String etaStr   = request.getParameter("eta");
 		String username = request.getParameter("username");
 		String email    = request.getParameter("email");
-		String pssw     = request.getParameter("pssw");
+		String pssw     = request.getParameter("pssw"); // deve essere uguale al name="pssw" del form
 
 		// 2. Controllo minimo che i campi non siano vuoti
 		if (isVuoto(nome) || isVuoto(cognome) || isVuoto(etaStr)
@@ -69,6 +69,16 @@ public class PrimaServlet extends HttpServlet {
 		utente.setUsername(username);
 		utente.setEmail(email);
 		utente.setPssw(pssw);
+		
+		//Controllo che l'email e il nome utente siano univoci
+		if (utenteDAO.emailEsistente(email)) {
+		    mostraErrore(request, response, "Questa email è già registrata");
+		    return;
+		}
+		if (utenteDAO.usernameEsistente(username)) {
+		    mostraErrore(request, response, "Questo username è già in uso");
+		    return;
+		}
 
 		// 4. Lo passo al DAO, che lo salva nel database
 		try {

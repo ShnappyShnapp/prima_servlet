@@ -1,59 +1,29 @@
 package it.exolab.utils;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.net.URL;
 
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class MyBatisUtils {
-	private static SqlSessionFactory factory;
-	 
-	 private MyBatisUtils() {
-	 }
-	 
-	 static
-	 {
-	  Reader reader = null;
-	  try {
-		  
-		  
-		  URL url = MyBatisUtils.class
-			        .getClassLoader()
-			        .getResource("mybatis-config.xml");
-		  
-			    
-			if(url == null) {
-			        throw new IllegalArgumentException("  not found 1");
-			}
-			    
-		   File file = new File(url.getFile()); 
-		  
-		  String resource = url.getFile();
-		  
-		  if(!file.exists()){
-			  throw new Exception("File not found");
-			  
-		  }
-		 
-	     reader = new FileReader(resource);
-		  
-		  
-		  
-	
-	  } catch (IOException e) {
-	   throw new RuntimeException(e.getMessage());
-	  } catch (Exception e) {
-		e.printStackTrace();
+	private static final SqlSessionFactory factory;
+
+	private MyBatisUtils() {
 	}
-	  factory = new SqlSessionFactoryBuilder().build(reader);
-	 }
-	 
-	 public static SqlSessionFactory getSqlSessionFactory() 
-	 {
-	  return factory;
-	 }
+
+	static {
+		// Legge mybatis-config.xml dal classpath (WEB-INF/classes).
+		// Funziona anche dentro il WAR, a differenza di File/FileReader.
+		try (Reader reader = Resources.getResourceAsReader("mybatis-config.xml")) {
+			factory = new SqlSessionFactoryBuilder().build(reader);
+		} catch (IOException e) {
+			throw new RuntimeException("Impossibile leggere mybatis-config.xml", e);
+		}
+	}
+
+	public static SqlSessionFactory getSqlSessionFactory() {
+		return factory;
+	}
 }
