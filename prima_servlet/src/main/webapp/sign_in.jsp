@@ -5,9 +5,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Sign in</title>
+		<link rel="stylesheet" href="styling/mainStyle.css">
+    	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap');
+		</style>
 	</head>
 	<body>
-		<div>
+		<div class="smallcard">
 			<h1>Sign in</h1>
 			<!-- quì è dove gli dico come mostrare i messaggi di errore -->
 			<% if (request.getAttribute("errore") != null) { %>
@@ -22,7 +26,7 @@
 				<label for="pssw">La tua password:</label>
 				<input type="password" id="pssw" name="pssw" required><br>
 				<br>
-				<input type="submit" value="Entra">
+				<input type="submit" value="Entra" class="button">
 			</form>
 		</div>
 	</body>

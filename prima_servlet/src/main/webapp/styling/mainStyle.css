@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+body {
+	background-color: #2E3332;
+	margin: 0px;
+	
+	font-family: "Patrick Hand", cursive;
+  	font-weight: 200;
+  	font-style: normal;
+  	font-size: 18px;
+}
+
+#container{
+	border: groove;
+	border-radius: 3vw;
+	color: #445A67;
+	background-color: #FFEFFF;
+	
+	margin: 4px;
+	padding: 4px;
+}
+
+header{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  	width: 100%;
+  	
+  	background-color: #445A67;
+  	
+  	border-radius: 3vw;
+}
+
+
+h1 {
+	font-family: "Permanent Marker", cursive;
+  	font-weight: 400;
+  	font-style: normal;
+	color: #C29BA3;
+	
+	margin: 0px;
+}
+
+header > h1{
+	margin: 0px;
+	font-size: 7vw;
+	color: #F3BFB3;
+
+}
+
+h2 {
+	font-family: "Patrick Hand", cursive;
+  	font-weight: 400;
+  	font-style: normal;
+  	font-size: 4vw;
+  	color: #445A67;
+  	
+  	margin-top: 0px;
+  	margin-bottom: 8px;
+  	
+}
+
+header > h2{
+	font-size: 5vw;
+	color: #C29Ba3;
+	margin: -3vw;
+}
+
+h5 {
+	font-size: 2.5vw;
+	font-weight: 100;
+	text-align: right;
+	
+	color: white;
+	width: inherit;
+	margin-right: 30vw;
+	margin-top: 1vw;
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	
+	margin-left: 5vh;
+	margin-right: 5vh;
+	padding-top: 0.5vh;
+	padding-bottom: 0.5vh;
+	padding-left: 2vh;
+	padding-right: 2vh;
+	
+	background-color: #CAB3C1;
+	border-radius: 50vw;
+}
+
+a {
+	text-decoration-style: wavy; 
+	color: #6E7B8F;
+}
+
+nav > a {
+	border-left: solid;
+	border-width: 1px;
+	border-color: #6E7B8F;
+	
+	color: #F7E5B7;
+	text-decoration: none;
+	font-size: 15px;
+	
+	padding-left: 4px;
+}
+
+.bigcard {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	
+	background-color: #FFDAD1;
+	border-radius: 3vw;
+	
+	text-align: center;
+	
+	margin: 8px;
+	padding: 4px;
+}
+
+.smallcard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  	justify-content: center;
+	
+	border: groove;
+	border-radius: 3vw;
+	color: #445A67;
+	background-color: #FFEFFF;
+	
+	width: fit-content;
+	margin: 8px auto;
+	padding: 24px;
+}
+
+article{
+	border: solid;
+	border-width: 1px;
+	border-color: #CAB3C1;
+	border-radius: 3vw;
+	
+	width: 100%;
+	margin: 4px;
+	padding: 4px;
+}
+
+.button {
+	padding: 3px 6px 6px 6px;
+	margin: 4px;
+    border: 1px outset buttonborder;
+    border-radius: 2vw;
+    background-color: #f7e5b7;
+}
+
+h4 {
+	color: #2E3332;
+	font-size: 14px;
+	font-weight: 200;
+  	font-style: normal;
+	
+	margin-top: -1vw;
+}

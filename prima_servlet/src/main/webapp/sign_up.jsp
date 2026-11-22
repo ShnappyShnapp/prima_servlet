@@ -6,9 +6,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Sign Up</title>
+		<link rel="stylesheet" href="styling/mainStyle.css">
+    	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap');
+		</style>
 	</head>
 	<body>
-		<div>
+		<div class="smallcard">
 			<h1>Sign up</h1>
 
 			<!-- quì è dove gli dico come mostrare i messaggi di errore -->
@@ -32,7 +36,7 @@
 				<label for="pssw">La tua password:</label>
 				<input type="password" id="pssw" name="pssw" required><br>
 				<br>
-				<input type="submit" value="Registrati">
+				<input type="submit" value="Registrati" class="button">
 			</form>
 		</div>
 	</body>
