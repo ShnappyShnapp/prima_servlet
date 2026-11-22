@@ -42,7 +42,7 @@
 			<article>
 				<h1>Iscriviti!</h1>
 				<h2>Ti senti troppo magro? Lei è d’accordo.</h2>
-				<a href="sign_up.jsp">Prenota ora<br> <small>(Prima che si offende)</small></a>
+				<a href="sign_up.jsp">Prenota ora<br><small>(Prima che si offende)</small></a>
 			</article>
 		</div>
 		<div>
