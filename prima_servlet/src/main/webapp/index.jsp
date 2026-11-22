@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Home</title>
+		<link rel="stylesheet" href="styles/mainStyle.css">
 	</head>
 	<body>
 <!-- La sezione titolo della pagina -->
@@ -16,7 +17,7 @@
 		</header>
 <!-- La sezione navigazione -->
 		<nav>
-			<a href="log_in.jsp">Profilo</a> <!-- Aggiungere icona al posto del testo e creare la pgina iscrizione o login -->
+			<a href="sign_in.jsp">Profilo</a>
 		</nav>
 		<!-- sezione contenuto pagina -->
 		<div>

@@ -1,23 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-<%
-    // Se non c'è un utente in sessione, rimando al form di iscrizione
-    if (session.getAttribute("username") == null) {
-        response.sendRedirect("sign_up.jsp");
-        return;
-    }
-%>
+
+<% if (session.getAttribute("utenteLoggato") == null) {
+       response.sendRedirect("sign_in.jsp");
+       return;
+   } %>
+   
+   
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Profilo</title>
+    <link rel="stylesheet" href="styles/mainStyle.css">
 </head>
 <body>
-    <h1>Benvenuto, ${sessionScope.username}!</h1>
-    <p>Nome: ${sessionScope.nome}</p>
-    <p>Cognome: ${sessionScope.cognome}</p>
-    <p>Età: ${sessionScope.eta}</p>
-    <p>Email: ${sessionScope.email}</p>
+	<header>
+		<h1>Rent a Grandma</h1>
+	</header>
+	<nav>
+		<a href="index.jsp">Home</a>
+	</nav>
+	<div>
+		<h1>Benvenuto, ${sessionScope.utenteLoggato.username}!</h1>
+    	<p>${sessionScope.utenteLoggato.nome} ${sessionScope.utenteLoggato.cognome}, ${sessionScope.utenteLoggato.eta}.</p>
+    	<h4>(${sessionScope.utenteLoggato.email})</h4>
+	</div>
 </body>
 </html>

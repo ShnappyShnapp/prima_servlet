@@ -96,6 +96,8 @@ public class PrimaServlet extends HttpServlet {
 		session.setAttribute("eta", eta);
 		session.setAttribute("username", username);
 		session.setAttribute("email", email);
+		
+		request.getSession().setAttribute("utenteLoggato", utente);
 		response.sendRedirect(request.getContextPath() + "/profilo.jsp");
 	}
 
