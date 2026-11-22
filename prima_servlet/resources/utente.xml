@@ -3,26 +3,28 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="it.exolab.UtenteMapper">
-   <insert id="insert" parameterType="it.exolab.UtenteModel" 
-  	useGeneratedKeys="true"
-    keyProperty="id"
-  	keyColumn="id"
-  >
-    insert into utenti (nome,cognome,eta,email,pssw,username) values (#{nome},#{cognome},#{eta},#{email},#{password},#{username})
+<!-- namespace = nome completo dell'interfaccia (con il package .mapper) -->
+<mapper namespace="it.exolab.mapper.UtenteMapper">
+
+  <insert id="insert" parameterType="it.exolab.model.UtenteModel"
+    useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    insert into utenti (nome, cognome, eta, email, pssw, username)
+    values (#{nome}, #{cognome}, #{eta}, #{email}, #{pass}, #{username})
   </insert>
-  
-  <!-- Per ora non serve - <update id="update" parameterType="it.exolab.UtenteModel">
-    update  utenti set  nome =  #{nome} ,cognome = #{cognome} ,eta = #{eta}, citta = #{citta}, indirizzo = #{indirizzo} where id = #{id}
+
+  <!-- Per ora non serve - <update id="update" parameterType="it.exolab.model.UtenteModel">
+    update utenti set nome = #{nome}, cognome = #{cognome}, eta = #{eta} where id = #{id}
   </update>-->
-  
-  <!-- per ora non serve - <delete id="delete" parameterType="String, String">
-    delete from  utenti where email = #{email} and pssw = #{password}
-  </delete>-->
-  
-  <select id="find" resultType="it.exolab.UtenteModel" 
-  	parameterType="int" 
-  >
-    select * from utenti where email = #{email} and pssw = #{password}
+
+  <select id="find" parameterType="String" resultType="it.exolab.model.UtenteModel">
+    select * from utenti where username = #{username}
+  </select>
+
+  <select id="countByEmail" parameterType="String" resultType="int">
+    SELECT COUNT(*) FROM utenti WHERE email = #{email}
+  </select>
+
+  <select id="countByUsername" parameterType="String" resultType="int">
+    SELECT COUNT(*) FROM utenti WHERE username = #{username}
   </select>
 </mapper>
