@@ -11,7 +11,7 @@
 		<div>
 			<h1>Sign up</h1>
 
-			<!-- Mostro l'eventuale errore che arriva dalla servlet -->
+			<!-- quì è dove gli dico come mostrare i messaggi di errore -->
 			<% if (request.getAttribute("errore") != null) { %>
 				<p style="color:red;">${errore}</p>
 			<% } %>
