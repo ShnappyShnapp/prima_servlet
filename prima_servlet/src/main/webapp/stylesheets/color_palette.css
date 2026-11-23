@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+body {
+	background-color: #2E3332;
+}
+
+#container {
+	color: #445A67;
+	background-color: #FFEFFF;
+}
+
+header {
+	background-color: #445A67;
+}
+
+nav {
+	background-color: #CAB3C1;
+}
+
+a {
+	color: #6E7B8F;
+}
+
+nav > a {
+	border-color: #6E7B8F;
+	color: #F7E5B7;
+}
+
+.bigcard {
+	background-color: #FFEDDA;
+}
+
+.smallcard {
+	color: #445A67;
+	background-color: #D7E2EA;
+}
+
+article {
+	border-color: #CAB3C1;
+}
+
+.button {
+	background-color: #F7E5B7;
+	border-color: #6E7B8F;
+	color: #6E7B8F;
+}
+
+input {
+	border-color: #6E7B8F;
+	color: #C29BA3;
+}

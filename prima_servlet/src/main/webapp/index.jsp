@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Home</title>
-		<link rel="stylesheet" href="styling/mainStyle.css">
+		<link rel="stylesheet" href="stylesheets/mainStyle.css">
 		<style>
 		@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap');
 		</style>
@@ -37,13 +37,21 @@
 				</article>
 				<article>
 					<h2>Piani Tariffari</h2>
-					<p><b>Base</b><br>
-					Un piatto di pasta e una domanda su quando ti sposi.</p>
-					<p><b>Premium</b><br>
-					Tre portate più dolce, inclusa la frase<br>
-					<i>"Ma non mangi niente!"</i></p>
-					<p><b>Deluxe</b><br>
-					La nonna resta finché non accetti il quarto bis.</p>
+					<section>
+						<h3>Base</h3>
+						<p>Un piatto di pasta e una domanda su quando ti sposi.</p>
+					</section>
+					<hr class="dotted">
+					<section>
+						<h3>Premium</h3>
+						<p>Tre portate più dolce, inclusa la frase<br>
+						<i>"Ma non mangi niente!"</i></p>
+					</section>
+					<hr class="dotted">
+					<section>
+						<h3>Deluxe</h3>
+						<p>La nonna resta finché non accetti il quarto bis.</p>
+					</section>
 				</article>
 			</div>
 			<div class="bigcard">

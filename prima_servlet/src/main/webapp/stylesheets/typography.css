@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+body {
+	font-family: "Lekton", monospace;
+  	font-weight: 400;
+  	font-style: normal;
+}
+
+h1 {
+	font-family: "Permanent Marker", cursive;
+  	font-weight: 400;
+  	font-style: normal;
+	color: #C29BA3;
+	
+	margin: 0px;
+}
+
+header > h1{
+	margin: 0px;
+	font-size: 7vw;
+	color: #F3BFB3;
+
+}
+
+h2 {
+	font-family: "Patrick Hand", cursive;
+  	font-weight: 400;
+  	font-style: normal;
+  	font-size: 4vw;
+  	color: #445A67;
+  	
+  	margin-top: 0px;
+  	margin-bottom: 8px;
+  	
+}
+
+header > h2{
+	font-size: 5vw;
+	color: #C29Ba3;
+	margin: -3vw;
+}
+
+
+h3 {
+	color: #8FCACA;
+	font-size: 16px;
+	
+	margin-bottom: -15px;
+}
+
+h4 {
+	color: #2E3332;
+	font-size: 14px;
+	font-weight: 200;
+  	font-style: normal;
+	
+	margin-top: -1vw;
+}
+
+h5 {
+	font-size: 2.5vw;
+	font-weight: 100;
+	text-align: right;
+	
+	color: white;
+	width: inherit;
+	margin-right: 30vw;
+	margin-top: 1vw;
+}
+
+.button {
+	font-family: "Patrick Hand", cursive;
+  	font-weight: 200;
+  	font-style: normal;
+  	font-size: 18px;
+  	
+  	text-decoration-line: underline;
+}

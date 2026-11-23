@@ -12,16 +12,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Profilo</title>
-    <link rel="stylesheet" href="styling/mainStyle.css">
+    <link rel="stylesheet" href="stylesheets/mainStyle.css">
     <style>
 	@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap');
 	</style>
 </head>
 <body>
 	<div id="container">
-		<header>
-			<h1 id="title">Rent a Grandma</h1>
-		</header>
+		<%@ include file="/WEB-INF/header.jsp" %>
 		<nav>
 			<a href="index.jsp">Home</a>
 		</nav>
