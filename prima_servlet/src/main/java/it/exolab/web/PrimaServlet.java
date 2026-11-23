@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -96,8 +97,14 @@ public class PrimaServlet extends HttpServlet {
 		session.setAttribute("eta", eta);
 		session.setAttribute("username", username);
 		session.setAttribute("email", email);
+		session.setAttribute("utente", utente);
 		
 		request.getSession().setAttribute("utenteLoggato", utente);
+		
+		Cookie cookie = new Cookie("id", utente.getEmail());
+		cookie.setMaxAge(3600);
+		
+		response.addCookie(cookie);
 		response.sendRedirect(request.getContextPath() + "/profilo.jsp");
 	}
 
