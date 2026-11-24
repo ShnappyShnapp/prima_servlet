@@ -17,7 +17,7 @@
 				<h1>Sign in</h1>
 				<!-- quì è dove gli dico come mostrare i messaggi di errore -->
 				<% if (request.getAttribute("errore") != null) { %>
-					<p style="color:red;">${errore}</p>
+					<p class="errore">${errore}</p>
 				<% } %>
 				
 				<form id="sign_in" action="${pageContext.request.contextPath}/getUserServlet" method="post">

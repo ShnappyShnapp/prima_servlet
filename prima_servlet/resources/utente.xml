@@ -13,9 +13,9 @@
     values (#{nome}, #{cognome}, #{eta}, #{email}, #{pssw}, #{username})
   </insert>
 
-  <!-- Per ora non serve - <update id="update" parameterType="it.exolab.model.UtenteModel">
-    update utenti set nome = #{nome}, cognome = #{cognome}, eta = #{eta} where id = #{id}
-  </update>-->
+  <update id="update" parameterType="it.exolab.model.UtenteModel">
+    update utenti set nome = #{nome}, cognome = #{cognome}, eta = #{eta}, username = #{username} where id = #{id}
+  </update>
 
   <select id="find" parameterType="String" resultType="it.exolab.model.UtenteModel">
     select id, nome, cognome, eta, email, pass AS pssw, username

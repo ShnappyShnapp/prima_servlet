@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpSession;
 
 import it.exolab.dao.UtenteDAO;
 import it.exolab.model.UtenteModel;
+import it.exolab.service.UtenteService;
 
 
 /**
@@ -22,6 +23,7 @@ import it.exolab.model.UtenteModel;
 @WebServlet("/PrimaServlet")
 public class PrimaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private UtenteService utenteService = new UtenteService();
 
 	// Il DAO si occupa di parlare col database (tramite MyBatis)
 	private final UtenteDAO utenteDAO = new UtenteDAO();
@@ -48,18 +50,16 @@ public class PrimaServlet extends HttpServlet {
 		String pssw     = request.getParameter("pssw"); // deve essere uguale al name="pssw" del form
 
 		// 2. Controllo minimo che i campi non siano vuoti
-		if (isVuoto(nome) || isVuoto(cognome) || isVuoto(etaStr)
-				|| isVuoto(username) || isVuoto(email) || isVuoto(pssw)) {
-			mostraErrore(request, response, "Compila tutti i campi");
+		if (utenteService.isVuoto(nome) || utenteService.isVuoto(cognome) || utenteService.isVuoto(etaStr)
+				|| utenteService.isVuoto(username) || utenteService.isVuoto(email) || utenteService.isVuoto(pssw)) {
+			utenteService.mostraErrore(request, response, "sign_up.jsp", "Compila tutti i campi");
 			return;
 		}
 
-		int eta;
-		try {
-			eta = Integer.parseInt(etaStr);
-		} catch (NumberFormatException e) {
-			mostraErrore(request, response, "Età non valida");
-			return;
+		Integer eta = utenteService.parseEta(etaStr);
+		if (eta == null) {
+		    utenteService.mostraErrore(request, response, "sign_up.jsp", "Età non valida");
+		    return;   // ← fondamentale
 		}
 
 		// 3. Metto i dati dentro il model
@@ -73,21 +73,21 @@ public class PrimaServlet extends HttpServlet {
 		
 		//Controllo che l'email e il nome utente siano univoci
 		if (utenteDAO.emailEsistente(email)) {
-		    mostraErrore(request, response, "Questa email è già registrata");
+			utenteService.mostraErrore(request, response, "sign_up.jsp", "Questa email è già registrata");
 		    return;
 		}
 		if (utenteDAO.usernameEsistente(username)) {
-		    mostraErrore(request, response, "Questo username è già in uso");
+			utenteService.mostraErrore(request, response, "sign_up.jsp", "Questo username è già in uso");
 		    return;
 		}
 
 		// 4. Lo passo al DAO, che lo salva nel database
 		try {
-			utenteDAO.insert(utente);
-		} catch (Exception e) { //in caso c'è un problema da mybatis
-			e.printStackTrace();
-			mostraErrore(request, response, "Errore durante la registrazione: " + e.getMessage());
-			return;
+		    utenteService.registraUtente(utenteDAO, utente);
+		} catch (Exception e) {
+		    e.printStackTrace();
+		    utenteService.mostraErrore(request, response, "sign_up.jsp", "Errore durante la registrazione");
+		    return;
 		}
 
 		// 5. Se è tutto ok salvo l'utente in sessione e vado al profilo
@@ -100,23 +100,6 @@ public class PrimaServlet extends HttpServlet {
 		session.setAttribute("utente", utente);
 		
 		request.getSession().setAttribute("utenteLoggato", utente);
-		
-		Cookie cookie = new Cookie("id", utente.getEmail());
-		cookie.setMaxAge(3600);
-		
-		response.addCookie(cookie);
 		response.sendRedirect(request.getContextPath() + "/profilo.jsp");
-	}
-
-	// Rimando al form mostrando il messaggio di errore
-	private void mostraErrore(HttpServletRequest request, HttpServletResponse response, String messaggio)
-			throws ServletException, IOException {
-		request.setAttribute("errore", messaggio);
-		request.getRequestDispatcher("sign_up.jsp").forward(request, response);
-	}
-
-	// Il check se la stringa è vuota
-	private boolean isVuoto(String s) {
-		return s == null || s.trim().isEmpty();
 	}
 }

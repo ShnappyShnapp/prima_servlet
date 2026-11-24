@@ -9,4 +9,5 @@ public interface UtenteMapper {
 	public UtenteModel find(@Param("username") String username);
 	public int countByEmail(@Param("email") String email);
 	public int countByUsername(@Param("username") String username);
+	public int update(UtenteModel utente);
 }

@@ -21,6 +21,7 @@
 	<div id="container">
 		<%@ include file="/WEB-INF/header.jsp" %>
 		<nav>
+			<a href ="impostazioni.jsp">Impostazioni</a>
 			<a href="index.jsp">Home</a>
 		</nav>
 		<div class="bigcard">

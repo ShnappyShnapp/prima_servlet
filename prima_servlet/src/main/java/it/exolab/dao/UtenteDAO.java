@@ -24,6 +24,15 @@ public class UtenteDAO {
 		}
 	}
 	
+	public int update(UtenteModel utente) {
+		try(SqlSession session = MyBatisUtils.getSqlSessionFactory().openSession()) {
+			UtenteMapper utenteMapper = session.getMapper(UtenteMapper.class);
+			int righe = utenteMapper.update(utente);
+	        session.commit();
+	        return righe;
+		}
+	}
+	
 	public boolean emailEsistente(String email) {
 		try (SqlSession session = MyBatisUtils.getSqlSessionFactory().openSession()) {
 			UtenteMapper utenteMapper = session.getMapper(UtenteMapper.class);

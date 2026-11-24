@@ -49,3 +49,7 @@ input {
 	border-color: #6E7B8F;
 	color: #C29BA3;
 }
+
+.errore { 
+	color: red; 
+	}

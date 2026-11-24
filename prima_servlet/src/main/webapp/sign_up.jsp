@@ -19,7 +19,7 @@
 	
 				<!-- quì è dove gli dico come mostrare i messaggi di errore -->
 				<% if (request.getAttribute("errore") != null) { %>
-					<p style="color:red;">${errore}</p>
+					<p class="errore">${errore}</p>
 				<% } %>
 	
 				<!-- l'effettiva finestra dove prendiamo i dati che poi salveremo nel db -->
@@ -34,7 +34,7 @@
 					</section>
 					<section class="row">
 						<label for="eta">La tua età:</label>
-						<input type="number" id="eta" name="eta" min="0" value="${param.eta}" required>
+						<input type="number" id="eta" name="eta" min="1" max ="129" value="${param.eta}" required>
 					</section>
 					<hr class="dotted">
 					<section class="row">
